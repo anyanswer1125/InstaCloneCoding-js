@@ -1,11 +1,8 @@
-body {
+body, html {
   margin: 0;
   padding: 0;
-}
-
-.wrapper {
-  display: flex;
-  height: 100vh; /* 화면 전체 높이 */
+  height: 100%;
+  overflow: hidden; /* body와 html에서 스크롤 제거 */
 }
 
 .Nav {
@@ -61,22 +58,25 @@ body {
 
 .Main {
   display: flex;
-  justify-content: center;
-  /* background-color: rgb(255, 206, 206); */
-  flex: 1; /* 남은 영역 차지 */
+  flex-direction: column; /* 자식 요소들을 세로로 배치 */
+  justify-content: flex-start; /* 게시글이 위에서부터 시작 */
+  align-items: center; /* 가운데 정렬 */
   margin-left: 75px; /* Nav의 너비(50px) + 패딩(12px) */
-  padding: 20px; /* 내부 여백 */
-  overflow-y: auto; /* 세로 스크롤 활성화 */
+  overflow-y: auto; /* 내부 스크롤 활성화 */
   height: 100vh; /* 화면 전체 높이 */
+  padding: 10px 0; /* 위아래 여백 추가 */
+  box-sizing: border-box; /* 패딩 포함 높이 계산 */
 }
 
 .POST {
   width: 500px;
-  /* background-color: #F2F2F2; */
+  margin-bottom: 0px; /* 게시글 간 간격 추가 */
+  box-sizing: border-box;
+  margin-top: 30px;
 }
 
 .Profile {
-  display:flex;
+  display: flex;
   align-items: center;
 }
 
@@ -88,7 +88,7 @@ body {
 }
 
 .Profile p {
-  margin-left: 20px;
+  margin-left: 12px;
   font-size: 14px;
   font-weight: 500;
 }
@@ -102,13 +102,13 @@ body {
   border-radius: 5px;
 }
 
-.SnsBtn i{
+.SnsBtn i {
   margin-top: 5px;
-  font-size: 20px;
+  font-size: 24px;
   margin-left: 10px;
 }
 
-.HwoLikes p{
+.HwoLikes p {
   font-size: 14px;
   margin: 10px 0px;
   margin-left: 5px;
@@ -130,10 +130,18 @@ body {
   font-size: 14px;
 }
 
-.CommentLine p{
+.CommentLine p {
   margin: 0;
   margin-left: 5px;
   font-size: 14px;
   font-weight: 500;
   color: #737373;
+}
+
+.POST hr {
+  margin: 40px 10px;
+  margin-bottom: 0;
+  border: none; /* 기본 테두리 제거 */
+  height: 1px; /* 두께 설정 */
+  background-color: #d6d6d6; /* 색상 변경 */
 }
