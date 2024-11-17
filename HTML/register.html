@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram에 로그인</title>
+  <title>Instagram에 가입하기</title>
   <link rel="stylesheet" href="/CSS/register.css">
 </head>
 <body>
@@ -12,12 +12,16 @@
     <i class="SG_Instagram">
       <img src="/Source/Logo-Instagram.png" alt="" width="175px">
     </i>
+
+    <p class="friend">친구들의 사진과 동영상을 보려면 가입하세요.</p>
     
     <!-- {{ 아이디,비밀번호 양식 제출 }} -->
     <form action="#" class="login"> 
-      <input class="id" type="text" placeholder="전화번호, 사용자 이름 또는 이메일">
+      <input class="id" type="text" placeholder="휴대폰 번호 또는 이메일 주소">
       <input class="pwd" type="password" placeholder="비밀번호">
-      <button class="loginBtn"><a>로그인</a></button>
+      <input class="name" type="text" placeholder="성명">
+      <input class="username" type="text" placeholder="사용자 이름">
+      <button class="loginBtn"><a>가입</a></button>
     </form>
 
     <div class="or_line">
@@ -26,22 +30,22 @@
       <div class="line"></div>
     </div>
     <div class="forgotPwd">
-      <a href="#" class="">비밀번호를 잊으셨나요?</a>
+      <a href="#" class="">게스트로 이용하기</a>
     </div>
   </div>
 
   <!-- {{{ 회원가입 영역 }}} -->
   <div class="registerArea">
-    <p>계정이 없으신가요? 
+    <p>계정이 있으신가요?
       <span class="register">
-        <a href="/HTML/register.html">가입하기</a>
+        <a href="/HTML/login.html"">로그인</a>
       </span>
     </p>
   </div>
 
   </div>
 
-  <script src="/JS/login.js"></script>
+  <script src="/JS/register.js"></script>
 
 </body>
 </html>

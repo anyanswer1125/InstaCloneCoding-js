@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: column; /* 세로 배치 */
+  width: 75px;
+  height: 100vh; /* 화면 전체 높이 */
+  text-align: center;
+  outline: 1px solid rgb(219, 219, 219);
+}
+
+.Nav ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.Nav li {
+  padding: 17px 12px;
+}
+
+.Nav i {
+  font-size: 24px;
+}
+
+.Logo {
+  margin-bottom: 50px;
+}
+
+.Menu {
+  margin-top: auto; /* 위쪽 여백을 자동으로 밀어냄 */
+}
