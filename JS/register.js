@@ -1,4 +1,4 @@
-const btn = document.querySelector('.loginBtn');
+const btn = document.querySelector('.RegisterBtn');
 
 const IdInput = document.querySelector('.id') 
 const PwdInput = document.querySelector('.pwd') 
@@ -21,6 +21,7 @@ function BtnColorChange() {
     btn.style.cursor = "pointer";
   }else{
     btn.style.background = "rgb( 103, 181, 250)";
+    btn.style.cursor = "default";
   }
 };
 

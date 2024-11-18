@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instagram에 로그인</title>
-  <link rel="stylesheet" href="/CSS/register.css">
+  <link rel="stylesheet" href="../CSS/login.css">
 </head>
 <body>
   <!-- {{{ 로그인 영역 }}} -->
   <div class="loginArea">
     <i class="SG_Instagram">
-      <img src="/Source/Logo-Instagram.png" alt="" width="175px">
+      <img src="../Source/Logo-Instagram.png" alt="" width="175px">
     </i>
     
     <!-- {{ 아이디,비밀번호 양식 제출 }} -->
@@ -34,14 +34,58 @@
   <div class="registerArea">
     <p>계정이 없으신가요? 
       <span class="register">
-        <a href="/HTML/register.html">가입하기</a>
+        <a href="../HTML/register.html">가입하기</a>
+        <a href="../HTML/main.html"></a>
       </span>
     </p>
   </div>
 
   </div>
 
-  <script src="/JS/login.js"></script>
+  <!-- <script src="/JS/login.js"></script> -->
+  <script>
+    const btn = document.querySelector('.loginBtn');
+    
+    const IdInput = document.querySelector('.id') 
+    const PwdInput = document.querySelector('.pwd') 
+
+    function BtnColorChange() {
+      // 아이디, 비밀번호란에 입력한 값이 조건에 일치하면 버튼 색상 변경 및, 클릭 가능하게 만들어주는 함수
+      const IdText = document.querySelector('.id').value;
+      const PwdText = document.querySelector('.pwd').value;
+    
+      if (IdText.includes('@') && IdText.includes(".com") &&PwdText.length >= 4){
+        btn.style.background = "rgb(0, 149, 246, 100)";
+        btn.style.cursor = "pointer";
+      }else{
+        btn.style.background = "rgb( 103, 181, 250)";
+      }
+    };
+    
+    IdInput.addEventListener('input', BtnColorChange);
+    PwdInput.addEventListener('input', BtnColorChange);
+
+
+    btn.addEventListener('click', function (event) {
+      event.preventDefault(); // 폼 기본 동작 막기
+  
+      const email = document.querySelector('.id').value;
+      const password = document.querySelector('.pwd').value;
+  
+      
+      // 로컬 스토리지에서 사용자 데이터 가져오기
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      const foundUser = users.find((user) => user.email === email && user.password === password);
+  
+      if (foundUser) {
+        alert(`환영합니다, ${foundUser.name}님!`);
+        // 메인 페이지로 이동 또는 사용자 경험 제공
+        window.location.href = '../HTML/main.html';
+      } else {
+        alert('이메일 또는 비밀번호가 일치하지 않습니다.');
+      }
+    });
+  </script>
 
 </body>
 </html>

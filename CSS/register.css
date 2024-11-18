@@ -9,7 +9,7 @@ a {
 }
 
 
-.loginArea {
+.RegisterArea {
   width: 350px;
   outline: 1px solid rgb(219, 219, 219);
   outline-offset: 1px;
@@ -31,14 +31,14 @@ a {
   margin-bottom: 30px;
 }
 
-.login {
+.Register {
   /* background-color: red; */
   /* display: flex; */
   display: grid;
   justify-content: center;
 }
 
-.login input {
+.Register input {
   width: 258px;
   height: 35px;
   margin-bottom: 5px;
@@ -50,13 +50,13 @@ a {
   font-size: 13px;
 }
 
-.login input:focus {
+.Register input:focus {
   border-width: 1.2px;
   border-color: #A8A8A8;
   outline: none;
 }
 
-.loginBtn {
+.RegisterBtn {
   margin-top: 10px;
   height: 33px;
   background-color: #67B5FA;
@@ -64,7 +64,7 @@ a {
   border: none;
   border-radius: 10px;
 }
-.loginBtn a {
+.RegisterBtn a {
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -98,7 +98,7 @@ a {
   color: #00376b;
 }
 
-.registerArea {
+.LoginArea {
   width: 350px;
   height: 60px;
   outline: 1px solid rgb(219, 219, 219);
@@ -110,11 +110,11 @@ a {
   align-items: center;
 }
 
-.registerArea p {
+.LoginArea p {
   font-size: 14px;
 }
 
-.register a{
+.Login a{
   font-weight: bolder;
   color: rgb(0, 149, 246);
 }
@@ -124,11 +124,11 @@ a {
 
   /* 모바일 화면에서는 테두리가없음 */
 
-  .loginArea {
+  .RegisterArea {
     outline: none;
   }
   
-  .registerArea {
+  .LoginArea {
     outline: none;
   }
   
