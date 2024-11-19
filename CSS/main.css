@@ -239,7 +239,7 @@ body, html {
 }
 
 .ProfileModal {
-  display: none; /* 초기 숨김 */
+  display: none;
   position: fixed; /* 고정 위치 */
   z-index: 999; /* 다른 요소보다 위에 표시 */
   top: 0%; 
@@ -257,6 +257,7 @@ body, html {
 
 .ProfileTab{
   text-align: center;
+
 }
 
 .LoginName {
@@ -264,16 +265,79 @@ body, html {
   font-size: 18px;
 }
 
-.LoginImg img{
-  width: 90px;
-  border-radius: 100%;
-  /* border: 3px solid rgb(153, 153, 153); */
-}
-
 .LoginUsername {
   padding: 0;
   font-size: 20px;
   font-weight: 600;
+}
+.MenuModal {
+  display: none;
+  /* display: block; */
+  position: absolute; /* Menu 아이콘 기준으로 배치 */
+  bottom: 0; /* 부모 컨테이너의 하단에 붙임 */
+  left: 85px; /* Menu 버튼의 오른쪽으로 이동 */
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 애니메이션 추가 */
+}
+
+.MenuModal:hover {
+  cursor: pointer;
+  background-color: rgb(240, 240, 240); /* 살짝 어두운 색상 */
+}
+
+.MenuTab {
+  text-align: center;
+}
+
+.MenuTab p{
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.ProfileImgContainer {
+  margin: 0 auto;
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ProfileImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.ProfileImgOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 검정 배경 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50%;
+  opacity: 0; /* 초기에는 보이지 않음 */
+  transition: opacity 0.3s ease;
+}
+
+.ProfileImgContainer:hover .ProfileImgOverlay {
+  opacity: 1; /* 마우스를 올렸을 때 보임 */
 }
 
 
