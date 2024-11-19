@@ -17,7 +17,7 @@
     <form action="#" class="login"> 
       <input class="id" type="text" placeholder="전화번호, 사용자 이름 또는 이메일">
       <input class="pwd" type="password" placeholder="비밀번호">
-      <button class="loginBtn"><a>로그인</a></button>
+      <button class="loginBtn" disabled="disabled"><a>로그인</a></button>
     </form>
 
     <div class="or_line">
@@ -57,8 +57,10 @@
       if (IdText.includes('@') && IdText.includes(".com") &&PwdText.length >= 4){
         btn.style.background = "rgb(0, 149, 246, 100)";
         btn.style.cursor = "pointer";
+        btn.disabled = false;
       }else{
         btn.style.background = "rgb( 103, 181, 250)";
+        btn.disabled = true;
       }
     };
     
@@ -72,19 +74,23 @@
       const email = document.querySelector('.id').value;
       const password = document.querySelector('.pwd').value;
   
-      
       // 로컬 스토리지에서 사용자 데이터 가져오기
       const users = JSON.parse(localStorage.getItem('users')) || [];
       const foundUser = users.find((user) => user.email === email && user.password === password);
   
       if (foundUser) {
-        alert(`환영합니다, ${foundUser.name}님!`);
-        // 메인 페이지로 이동 또는 사용자 경험 제공
-        window.location.href = '../HTML/main.html';
+          alert(`환영합니다, ${foundUser.name}님!`);
+          
+          // 현재 로그인한 사용자 정보를 로컬 스토리지에 저장
+          localStorage.setItem('currentUser', JSON.stringify(foundUser));
+          
+          // 메인 페이지로 이동
+          window.location.href = '../HTML/main.html';
       } else {
-        alert('이메일 또는 비밀번호가 일치하지 않습니다.');
+          alert('이메일 또는 비밀번호가 일치하지 않습니다.');
       }
-    });
+  });
+  
   </script>
 
 </body>

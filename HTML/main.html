@@ -1,136 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Instagram</title>
-  <link rel="stylesheet" href="../CSS/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
 </head>
-<script src="https://kit.fontawesome.com/b49e3afbd5.js" crossorigin="anonymous"></script>
 <body>
-    <div class="NavBox">
-    <div class="Nav">
-      
-      <div class="Icon Logo">
-        <i class="fa-brands fa-instagram"></i>
-      </div>
-      
-      <ul class="Icons">
-        <li class="Icon Home"><i class="fa-solid fa-house"></i></li>
-        
-        <li class="Icon Search"><i class="fa-solid fa-magnifying-glass"></i></li>
-        
-        <li class="Icon Message"><i class="fa-regular fa-paper-plane"></i></li>
-        
-        <li class="Icon Likes"><i class="fa-regular fa-heart"></i></li>
-        
-        <li class="Icon Post"><i class="fa-regular fa-square-plus"></i></li>
-        
-        <li class="Icon User"><i class="fa-regular fa-circle-user"></i></li>
-        
-      </ul>
-      
-      <div class="Icon Menu">
-        <i class="fa-solid fa-bars"></i>
-      </div>
-      
-      
-    </div>
-  </div>
-  
-    
-    <div class="Main">
-      
-      <div class="modal">
-        <div class="PostModal">
-          
-          <h5>새 게시물 만들기</h5>
-          
-          <hr>
-    
-          <div class="uploadArea">
-            <i class="fa-regular fa-image"></i>
-            <p>사진을 여기에 끌어다 놓으세요</p>
-            <button class="uploadButton">컴퓨터에서 선택</button>
-          </div>
-          
-        </div>
-      </div>
+    <div id="welcomeMessage"></div>
+    <button id="logoutBtn">로그아웃</button>
 
-      <div class="POST">
-        <div class="Profile">
-          <img class="ProfileImg" src="../Source/POST/BonguProfile.jpg" alt="">
-          <p class="ProfileName">_kimbonggu</p>
-          <p class="uploadDate">1주</p>
-        </div>
+    <script>
+        // 현재 로그인한 사용자 정보 가져오기
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-        <img class="PostIMG" src="../Source/POST/BonguIMG.jpg" alt="">
+        if (currentUser) {
+            // 사용자 이름 표시
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            welcomeMessage.textContent = `환영합니다, ${currentUser.username}님!`;
+        } else {
+            // 로그인 정보가 없으면 로그인 페이지로 이동
+            alert('로그인 정보가 없습니다. 다시 로그인해주세요.');
+            window.location.href = '../HTML/login.html';
+        }
 
-        <div class="SnsBtn">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-comment"></i>
-          <i class="fa-regular fa-paper-plane"></i>
-        </div>
-        
-        <div class="HwoLikes">
-          <p>좋아요 없음</p>
-        </div>
-        
-        <div class="PostInfo">
-
-          <p class="ProfileName">_kimbonggu</p>
-          
-          <p class="PostText">김봉구🤎</p>
-
-        </div>
-
-        <div class="CommentLine">
-          <p>댓글 달기...</p>
-        </div>
-
-        <hr class="BtwPost">
-        
-      </div>
-
-      <div class="POST">
-        <div class="Profile">
-          <img class="ProfileImg" src="../Source/POST/BonguProfile.jpg" alt="">
-          <p class="ProfileName">_kimbonggu</p>
-          <p class="uploadDate">1주</p>
-        </div>
-
-        <img class="PostIMG" src="../Source/POST/BonguIMG.jpg" alt="">
-
-        <div class="SnsBtn">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-comment"></i>
-          <i class="fa-regular fa-paper-plane"></i>
-        </div>
-        
-        <div class="HwoLikes">
-          <p>좋아요 없음</p>
-        </div>
-        
-        <div class="PostInfo">
-
-          <p class="ProfileName">_kimbonggu</p>
-          
-          <p class="PostText">김봉구🤎</p>
-
-        </div>
-
-        <div class="CommentLine">
-          <p>댓글 달기...</p>
-        </div>
-
-        <hr class="BtwPost">
-        
-      </div>
-
-  </div>
-    
-    
-  </body>
-  <script src="../JS/main.js"></script>
-
-  </html>
+        // 로그아웃 버튼
+        const logoutBtn = document.getElementById('logoutBtn');
+        logoutBtn.addEventListener('click', function () {
+            // 현재 사용자 정보 삭제
+            localStorage.removeItem('currentUser');
+            alert('로그아웃 되었습니다.');
+            window.location.href = '../HTML/login.html';
+        });
+    </script>
+</body>
+</html>

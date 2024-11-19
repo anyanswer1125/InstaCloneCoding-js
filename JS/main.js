@@ -1,5 +1,7 @@
 const openButton = document.querySelector('.Icon.Post');
 const modal = document.querySelector('.modal');
+const uploadPicture = document.querySelector('.uploadPicture');
+
 
 openButton.addEventListener('click', () => {
   // alert("버튼 누름!");
@@ -10,4 +12,8 @@ openButton.addEventListener('click', () => {
       modal.style.display = 'none';
     }
   }
+})
+
+uploadPicture.addEventListener('click',() => {
+  
 })

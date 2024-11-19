@@ -117,10 +117,12 @@ body, html {
   margin: 10px 0px;
   margin-left: 5px;
   font-weight: 500;
+  margin-bottom: 0;
 }
 
 .PostInfo {
   display: flex;
+  align-items: center;
 }
 
 .PostInfo p {
@@ -164,8 +166,9 @@ body, html {
 .PostModal {
   background-color: white;
   /* width: 40vw; */
+  width: 35vw;
   height: 75vh;
-  margin: 50px auto;
+  margin: 100px auto;
   /* padding: 20px; */
   /* padding: 5px; */
   text-align: center;
@@ -177,6 +180,22 @@ body, html {
   margin: 0;
   font-size: 16px;
   font-weight: 600;
+  margin-left: 40px;
+}
+
+.PostNext {
+  color: #0095f6;
+  padding-top: 2px;
+  padding-right: 15px;
+  float: right;
+  display: flex;
+  text-align: right;
+  margin: 0;
+  font-size: 14px;
+}
+
+.PostNext:hover {
+  cursor: pointer;
 }
 
 .PostModal hr {
@@ -192,7 +211,7 @@ body, html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20vh;
+  margin-top: 25vh;
 }
 
 .uploadArea i {
@@ -204,7 +223,7 @@ body, html {
   font-size: 20px;
 }
 
-.uploadButton {
+.uploadPicture {
   width: 120px;
   height: 32px;
   border-radius: 8px;
@@ -215,6 +234,29 @@ body, html {
   font-weight: 600;
 }
 
-.uploadButton:hover {
+.uploadPicture:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 1400px) {
+  .PostModal {
+    width: 60vw;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  
+  .PostModal {
+    margin-top: 200px;
+    height: 50vh;
+  }
+
+  .uploadArea {
+    margin-top: 150px;
+  }
+  
+  .Main {
+    margin-left: 0px;
+  }
 }
