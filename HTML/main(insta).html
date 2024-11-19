@@ -8,41 +8,118 @@
 </head>
 <script src="https://kit.fontawesome.com/b49e3afbd5.js" crossorigin="anonymous"></script>
 <body>
-    <div class="NavBox">
+  <div class="NavBox">
     <div class="Nav">
+    
+    <div class="Icon Logo">
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    
+    <ul class="Icons">
+      <li class="Icon Home"><i class="fa-solid fa-house"></i></li>
       
-      <div class="Icon Logo">
-        <i class="fa-brands fa-instagram"></i>
-      </div>
+      <li class="Icon Search"><i class="fa-solid fa-magnifying-glass"></i></li>
       
-      <ul class="Icons">
-        <li class="Icon Home"><i class="fa-solid fa-house"></i></li>
-        
-        <li class="Icon Search"><i class="fa-solid fa-magnifying-glass"></i></li>
-        
-        <li class="Icon Message"><i class="fa-regular fa-paper-plane"></i></li>
-        
-        <li class="Icon Likes"><i class="fa-regular fa-heart"></i></li>
-        
-        <li class="Icon Post"><i class="fa-regular fa-square-plus"></i></li>
-        
-        <li class="Icon User"><i class="fa-regular fa-circle-user"></i></li>
-        
-      </ul>
+      <li class="Icon Message"><i class="fa-regular fa-paper-plane"></i></li>
       
-      <div class="Icon Menu">
-        <i class="fa-solid fa-bars"></i>
-      </div>
+      <li class="Icon Likes"><i class="fa-regular fa-heart"></i></li>
       
+      <li class="Icon Post"><i class="fa-regular fa-square-plus"></i></li>
       
+      <li class="Icon User"><i class="fa-regular fa-circle-user"></i></li>
+      
+    </ul>
+    
+    <div class="Icon Menu">
+      <i class="fa-solid fa-bars"></i>
+    </div>
     </div>
   </div>
   
     
-    <div class="Main">
+  <div class="Main">
+    <div class="POST">
+          <div class="Profile">
+            <img class="ProfileImg" src="../Source/POST/BonguProfile.jpg" alt="">
+            <p class="ProfileName">_kimbonggu</p>
+            <p class="uploadDate">1주</p>
+          </div>
+
+          <img class="PostIMG" src="../Source/POST/BonguIMG.jpg" alt="">
+
+          <div class="SnsBtn">
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-regular fa-comment"></i>
+            <i class="fa-regular fa-paper-plane"></i>
+          </div>
+
+          <div class="HwoLikes">
+            <p>좋아요 없음</p>
+          </div>
+
+          <div class="PostInfo">
+
+            <p class="ProfileName">_kimbonggu</p>
+
+            <p class="PostText">김봉구🤎</p>
+
+          </div>
+
+          <div class="CommentLine">
+            <p>댓글 달기...</p>
+          </div>
+
+          <hr class="BtwPost">
+
+      </div>
+
+      <div class="POST">
+        <div class="Profile">
+          <img class="ProfileImg" src="../Source/POST/Default_pfp.jpg" alt="">
+          <p class="ProfileName">제목</p>
+          <p class="uploadDate">업로드날짜</p>
+        </div>
       
-      <div class="modal">
-        <div class="PostModal">
+        <img class="PostIMG" src="../Source/POST/BonguIMG.jpg" alt="">
+        <!-- 이건 업로드한 사진 -->
+      
+        <div class="SnsBtn">
+          <i class="fa-regular fa-heart"></i>
+          <!-- 좋아요 수 -->
+          <i class="fa-regular fa-comment"></i>
+          <!-- 댓글 버튼 -->
+          <i class="fa-regular fa-paper-plane"></i>
+          <!-- 그냥 장식 -->
+        </div>
+        
+        <div class="HwoLikes">
+          <!-- 좋아요가 얼마나 있는지 이건 일단 기능 만들지말고 이대로 표시해-->
+          <p>좋아요 없음</p>
+        </div>
+        
+        <div class="PostInfo">
+        
+          <p class="ProfileName">guest</p>
+          <!-- 이건 업로드한 사람 이름인데 아직 내가 정해주지 않았으니까 guest로 해줘           -->
+          <p class="PostText">내용</p>
+          <!-- 이건 내용 란에 작성한 내용이 여기로 오면 돼. -->
+        </div>
+      
+        <div class="CommentLine">
+          <!-- <p>댓글 달기...</p> -->
+            <!-- 이건 일단 그냥 놔둬줘 -->
+        </div>
+      
+        <hr class="BtwPost">
+        <!-- 이건 각 게시글 사이를 구별해주는 선이야 -->
+        
+      </div>
+
+  </div>
+
+
+  <div class="PostModal">
+        <div class="PostTab">
           
           <h5>새 게시물 만들기
             <p class="PostNext">다음</p>
@@ -61,89 +138,23 @@
           </div>
           
         </div>
-      </div>
-
-      <div class="POST">
-        <div class="Profile">
-          <img class="ProfileImg" src="../Source/POST/BonguProfile.jpg" alt="">
-          <p class="ProfileName">_kimbonggu</p>
-          <p class="uploadDate">1주</p>
-        </div>
-
-        <img class="PostIMG" src="../Source/POST/BonguIMG.jpg" alt="">
-
-        <div class="SnsBtn">
-          <i class="fa-regular fa-heart"></i>
-          <i class="fa-regular fa-comment"></i>
-          <i class="fa-regular fa-paper-plane"></i>
-        </div>
-        
-        <div class="HwoLikes">
-          <p>좋아요 없음</p>
-        </div>
-        
-        <div class="PostInfo">
-
-          <p class="ProfileName">_kimbonggu</p>
-          
-          <p class="PostText">김봉구🤎</p>
-
-        </div>
-
-        <div class="CommentLine">
-          <p>댓글 달기...</p>
-        </div>
-
-        <hr class="BtwPost">
-        
-      </div>
-
-      <div class="POST">
-        <div class="Profile">
-          <img class="ProfileImg" src="../Source/POST/Default_pfp.jpg" alt="">
-          <p class="ProfileName">제목</p>
-          <p class="uploadDate">업로드날짜</p>
-        </div>
-
-        <img class="PostIMG" src="../Source/POST/BonguIMG.jpg" alt="">
-        <!-- 이건 업로드한 사진 -->
-
-        <div class="SnsBtn">
-          <i class="fa-regular fa-heart"></i>
-          <!-- 좋아요 수 -->
-          <i class="fa-regular fa-comment"></i>
-          <!-- 댓글 버튼 -->
-          <i class="fa-regular fa-paper-plane"></i>
-          <!-- 그냥 장식 -->
-        </div>
-        
-        <div class="HwoLikes">
-          <!-- 좋아요가 얼마나 있는지 이건 일단 기능 만들지말고 이대로 표시해-->
-          <p>좋아요 없음</p>
-        </div>
-        
-        <div class="PostInfo">
-
-          <p class="ProfileName">guest</p>
-          <!-- 이건 업로드한 사람 이름인데 아직 내가 정해주지 않았으니까 guest로 해줘           -->
-          <p class="PostText">내용</p>
-          <!-- 이건 내용 란에 작성한 내용이 여기로 오면 돼. -->
-        </div>
-
-        <div class="CommentLine">
-          <!-- <p>댓글 달기...</p> -->
-           <!-- 이건 일단 그냥 놔둬줘 -->
-        </div>
-
-        <hr class="BtwPost">
-        <!-- 이건 각 게시글 사이를 구별해주는 선이야 -->
-        
-      </div>
 
   </div>
     
+  <div class="ProfileModal">
+    <div class="ProfileTab">
+      <p><span id="LoginName"></span> 님</p>
+
+      <div class="LoginImg">
+        <img src="../Source/alexander_hwai.jpg" alt="">
+      </div>
+      
+      <p><span id="LoginUsername">username</span></p>
+    </div>
     
+  </div>
+
   </body>
   <script src="../JS/main.js"></script>
-
+  
   </html>

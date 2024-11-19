@@ -152,7 +152,7 @@ body, html {
   background-color: #d6d6d6; /* 색상 변경 */
 }
 
-.modal {
+.PostModal {
   display: none;
   position: fixed;
   top: 0;
@@ -163,7 +163,7 @@ body, html {
   z-index: 1000;
 }
 
-.PostModal {
+.PostTab {
   background-color: white;
   /* width: 40vw; */
   width: 35vw;
@@ -175,7 +175,7 @@ body, html {
   border-radius: 15px;
 }
 
-.PostModal h5{
+.PostTab h5{
   padding: 10px 0px;
   margin: 0;
   font-size: 16px;
@@ -198,7 +198,7 @@ body, html {
   cursor: pointer;
 }
 
-.PostModal hr {
+.PostTab hr {
   height: 1px;
   background-color: #d6d6d6;
   border: none;
@@ -238,8 +238,47 @@ body, html {
   cursor: pointer;
 }
 
+.ProfileModal {
+  display: none; /* 초기 숨김 */
+  position: fixed; /* 고정 위치 */
+  z-index: 999; /* 다른 요소보다 위에 표시 */
+  top: 0%; 
+  /* left: 50%; */
+  margin-left: 200px;
+  margin-top: 430px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  width: 200px;
+  height: 200px;
+  border-radius: 15%;
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.25);
+}
+
+
+.ProfileTab{
+  text-align: center;
+}
+
+.LoginName {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.LoginImg img{
+  width: 90px;
+  border-radius: 100%;
+  /* border: 3px solid rgb(153, 153, 153); */
+}
+
+.LoginUsername {
+  padding: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
 @media screen and (max-width: 1400px) {
-  .PostModal {
+  .PostTab {
     width: 60vw;
   }
   
@@ -247,7 +286,7 @@ body, html {
 
 @media screen and (max-width: 600px) {
   
-  .PostModal {
+  .PostTab {
     margin-top: 200px;
     height: 50vh;
   }

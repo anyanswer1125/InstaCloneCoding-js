@@ -16,7 +16,7 @@
         if (currentUser) {
             // 사용자 이름 표시
             const welcomeMessage = document.getElementById('welcomeMessage');
-            welcomeMessage.textContent = `환영합니다, ${currentUser.username}님!`;
+            welcomeMessage.textContent = `${currentUser.username}`;
         } else {
             // 로그인 정보가 없으면 로그인 페이지로 이동
             alert('로그인 정보가 없습니다. 다시 로그인해주세요.');
