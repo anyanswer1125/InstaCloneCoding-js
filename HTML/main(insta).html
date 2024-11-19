@@ -29,7 +29,10 @@
       
       <li class="Icon Post"><i class="fa-regular fa-square-plus"></i></li>
       
-      <li class="Icon User"><i class="fa-regular fa-circle-user"></i></li>
+      <li class="Icon User">
+        <img id="userProfileIcon" src="../Source/POST/Default_pfp.jpg" alt="User Profile" style="width: 28px; height: 28px; border-radius: 50%;">
+      </li>
+      
 
     </ul>
 
@@ -40,12 +43,17 @@
     </div>
   </div>  
     
+  <div class="Main">
+   
+
+  </div>
 
   <div class="PostModal">
         <div class="PostTab">
           
           <h5>새 게시물 만들기
-            <p class="PostNext">다음</p>
+            <!-- <p class="PostNext" id="submitPost" role="button">업로드</p> -->
+            <button class="uploadPicture" id="submitPost">업로드</button>
           </h5>
           
           <hr>
@@ -57,8 +65,12 @@
           <div class="uploadArea">
             <i class="fa-regular fa-image"></i>
             <p>사진을 여기에 끌어다 놓으세요</p>
-            <button class="uploadPicture">컴퓨터에서 선택</button>
+            <input type="file" id="imageUpload" accept="image/*">
+            <textarea id="postContent" placeholder="내용을 입력하세요"></textarea>
+            
           </div>
+          
+          
           
         </div>
 
@@ -69,7 +81,7 @@
       <p><span id="LoginName"></span> 님</p>
 
       <div class="ProfileImgContainer">
-        <img class="ProfileImg" id="profilePicture" src="../Source/alexander_hwai.jpg" alt="프로필 사진">
+        <img class="ProfileImg" id="profilePicture" src="../Source/POST/Default_pfp.jpg" alt="프로필 사진">
         <div class="ProfileImgOverlay" id="changeProfile">변경</div>
       </div>
       <input type="file" id="profileInput" accept="image/*" style="display: none;">
@@ -91,9 +103,9 @@
   </body>
   <script src="../JS/main.js"></script>
 
-<script>
-
-
-</script>
+  <script>
+    
+  </script>
+  
   
 </html>
