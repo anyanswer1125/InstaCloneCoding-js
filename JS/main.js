@@ -282,27 +282,6 @@ submitPostButton.addEventListener('click', () => {
 
 // 페이지 로드 시 게시글 및 좋아요 상태 복원
 // 페이지 로드 시 게시글 및 댓글 렌더링
-window.addEventListener('DOMContentLoaded', () => {
-  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
-  const savedLikes = JSON.parse(localStorage.getItem('likes')) || {};
-  const savedComments = JSON.parse(localStorage.getItem('comments')) || {};
-
-  console.log('Saved Posts:', savedPosts);
-  console.log('Saved Comments:', savedComments);
-
-  savedPosts.reverse();
-
-  savedPosts.forEach((postData) => {
-    postData.likes = savedLikes[postData.id] || [];
-    addPostToDOM(postData);
-
-    if (savedComments[postData.id]) {
-      savedComments[postData.id].forEach((comment) => {
-        addCommentToPost(postData.id, comment.username, comment.text);
-      });
-    }
-  });
-});
 
 
 
@@ -314,7 +293,7 @@ document.body.appendChild(commentModal);
 commentModal.innerHTML = `
   <div class="CommentTab">
     <textarea class="CommentInput" placeholder="댓글 작성하기.."></textarea>
-    <button class="SaveComment">저장</button>
+    <button class="SaveComment">게시</button>
   </div>
 `;
 
@@ -335,38 +314,28 @@ mainContainer.addEventListener('click', (event) => {
 
 // 저장 버튼 클릭 이벤트
 saveCommentButton.addEventListener('click', () => {
-  // 댓글 모달에서 postId 가져오기
   const postId = commentModal.getAttribute('data-post-id');
-
-  // 댓글 입력값 가져오기
-  const commentText = commentInput.value.trim(); // commentText 변수를 정의
+  const commentText = commentInput.value.trim();
 
   if (commentText) {
     const comments = JSON.parse(localStorage.getItem('comments')) || {};
     if (!comments[postId]) {
       comments[postId] = [];
     }
-
-    // 새 댓글 객체 생성
     const newComment = {
       username: currentUser.username,
       text: commentText,
     };
+    comments[postId].push(newComment);
+    localStorage.setItem('comments', JSON.stringify(comments));
 
-    comments[postId].push(newComment); // 댓글 데이터 추가
-    localStorage.setItem('comments', JSON.stringify(comments)); // 로컬스토리지에 저장
-
-    // 댓글 DOM에 추가
+    // 댓글 추가
     addCommentToPost(postId, newComment.username, newComment.text);
 
-    // 모달 닫기 및 입력 필드 초기화
     commentModal.style.display = 'none';
     commentInput.value = '';
-  } else {
-    console.error('Comment text is empty');
   }
 });
-
 
 
 // 페이지 로드 시 댓글 렌더링
@@ -375,11 +344,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   for (const postId in savedComments) {
     savedComments[postId].forEach((comment) => {
-      addCommentToPost(postId, comment.username, comment.text); // 댓글 데이터 분리
+      addCommentToPost(postId, comment);
     });
   }
 });
-
 
 // 댓글 DOM 추가 함수
 function addCommentToPost(postId, username, commentText) {
@@ -398,10 +366,33 @@ function addCommentToPost(postId, username, commentText) {
 }
 
 
+
 // 모달 닫기 기능
 window.addEventListener('click', (event) => {
   if (event.target === commentModal) {
     commentModal.style.display = 'none';
     commentInput.value = '';
   }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
+  const savedLikes = JSON.parse(localStorage.getItem('likes')) || {};
+  const savedComments = JSON.parse(localStorage.getItem('comments')) || {};
+
+  console.log('Saved Posts:', savedPosts);
+  console.log('Saved Comments:', savedComments);
+
+  savedPosts.reverse();
+
+  savedPosts.forEach((postData) => {
+    postData.likes = savedLikes[postData.id] || [];
+    addPostToDOM(postData);
+
+    if (savedComments[postData.id]) {
+      savedComments[postData.id].forEach((comment) => {
+        addCommentToPost(postData.id, comment.username, comment.text);
+      });
+    }
+  });
 });
