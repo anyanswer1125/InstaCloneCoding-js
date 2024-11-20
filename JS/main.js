@@ -252,8 +252,8 @@ submitPostButton.addEventListener('click', () => {
       id: `post_${Date.now()}`, // 고유 ID 생성
       username: currentUser ? currentUser.username : 'guest',
       profilePicture: currentUser
-        ? localStorage.getItem(`profilePicture_${currentUser.username}`) || '../Source/POST/Default_pfp.jpg'
-        : '../Source/POST/Default_pfp.jpg',
+        ? localStorage.getItem(`profilePicture_${currentUser.username}`) || '../InstaCloneCoding-js/Source/POST/Default_pfp.jpg'
+        : '../InstaCloneCoding-js/Source/POST/Default_pfp.jpg',
       postImage: e.target.result,
       postText: postContent.value,
       uploadDate: new Date().toLocaleString(),

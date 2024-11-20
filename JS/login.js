@@ -107,7 +107,7 @@ const btn = document.querySelector('.loginBtn');
       users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
       alert('회원가입 성공! 이제 로그인하세요.');
-      window.location.href = '../HTML/login.html'; // 로그인 페이지로 이동
+      window.location.href = '../InstaCloneCoding-js/login.html'; // 로그인 페이지로 이동
   });  
   
       if (foundUser) {
@@ -117,7 +117,7 @@ const btn = document.querySelector('.loginBtn');
           localStorage.setItem('currentUser', JSON.stringify(foundUser));
           
           // 메인 페이지로 이동
-          window.location.href = '../HTML/main(insta).html';
+          window.location.href = '../InstaCloneCoding-js/login.html';
       } else {
           alert('이메일 또는 비밀번호가 일치하지 않습니다.');
       }

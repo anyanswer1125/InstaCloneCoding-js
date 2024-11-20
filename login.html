@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instagram에 로그인</title>
   <link rel="stylesheet" href="../InstaCloneCoding-js/CSS/login.css">
-  <link rel="icon" href="../Source/Blue_InstagramLogo.webp"/>
+  <link rel="icon" href="../InstaCloneCoding-js/Source/Blue_InstagramLogo.webp"/>
 </head>
 <body>
   <!-- {{{ 로그인 영역 }}} -->
   <div class="loginArea">
     <i class="SG_Instagram">
-      <img src="../Source/Logo-Instagram.png" alt="" width="175px">
+      <img src="../InstaCloneCoding-js/Source/Logo-Instagram.png" alt="" width="175px">
     </i>
     
     <!-- {{ 아이디,비밀번호 양식 제출 }} -->
@@ -35,8 +35,7 @@
   <div class="registerArea">
     <p>계정이 없으신가요? 
       <span class="register">
-        <a href="../HTML/register.html">가입하기</a>
-        <a href="../index.html"></a>
+        <a href="../InstaCloneCoding-js/register.html">가입하기</a>
       </span>
     </p>
   </div>
@@ -86,7 +85,7 @@
           localStorage.setItem('currentUser', JSON.stringify(foundUser));
           
           // 메인 페이지로 이동
-          window.location.href = '../index.html';
+          window.location.href = '../InstaCloneCoding-js/index.html';
       } else {
           alert('이메일 또는 비밀번호가 일치하지 않습니다.');
       }

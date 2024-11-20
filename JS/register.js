@@ -75,5 +75,5 @@ const btn = document.querySelector('.RegisterBtn');
       users.push(user);
       localStorage.setItem('users', JSON.stringify(users));
       alert('회원가입 성공! 이제 로그인하세요.');
-      window.location.href = '../HTML/login.html'; // 로그인 페이지로 이동
+      window.location.href = '../InstaCloneCoding-js/login.html'; // 로그인 페이지로 이동
   });  
