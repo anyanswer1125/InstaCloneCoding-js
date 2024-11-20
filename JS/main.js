@@ -8,6 +8,8 @@ const ProfileModal = document.querySelector('.ProfileModal');
 const MenuButton = document.querySelector('.Icon.Menu');
 const MenuModal = document.querySelector('.MenuModal');
 
+
+// {{ 모달 버튼 함수임. style값을 변경함 none -> block 으로 }}
 ProfileButton.addEventListener('click', () => {
   if (ProfileModal.style.display == 'block') {
     ProfileModal.style.display = 'none';
@@ -33,11 +35,13 @@ MenuButton.addEventListener('click', () => {
   MenuModal.style.display = 'block';
 });
 
+// 여기까지 다 모달 기능
+
 // {{로그인한 유저 불러오기}}
 const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
 if (currentUser) {
-  // 사용자 이름 표시
+  // {{사용자 이름 불러오기}}
   const LoginName = document.getElementById('LoginName');
   const LoginUsername = document.getElementById('LoginUsername');
   LoginName.textContent = `${currentUser.name}`;
@@ -48,60 +52,60 @@ if (currentUser) {
   LoginUsername.style.fontSize = '20px';
   LoginUsername.style.fontWeight = '600';
 } else {
-  // 로그인 정보가 없으면 로그인 페이지로 이동
+  // {로그인 정보가 없으면 로그인 페이지로 이동}
   alert('로그인 정보가 없습니다. 다시 로그인해주세요.');
   window.location.href = '../HTML/login.html';
 }
 
-// 로그아웃 버튼
+// {{로그아웃 버튼}}
 const LogoutButton = document.getElementById('LogoutButton');
 LogoutButton.addEventListener('click', function () {
-  // 현재 사용자 정보 삭제
+  // {{로컬스토리지에 있는 현재 사용자 정보 삭제}}
   localStorage.removeItem('currentUser');
   alert('로그아웃 되었습니다.');
   window.location.href = '../HTML/login.html';
 });
 
-// 유저별 프로필 사진 저장 및 불러오기
+// {{사진 변경하는 부분}}
 const profileImg = document.getElementById('profilePicture');
 const profileInput = document.getElementById('profileInput');
 const changeProfile = document.getElementById('changeProfile');
 
-// 유저별 키 생성 (예: "profilePicture_username")
+// -- 로컬 스토리지에 유저별 키 생성 (예: "profilePicture_username")
 let userKey = null;
 
 if (currentUser) {
   userKey = `profilePicture_${currentUser.username}`; // 유저별 고유 키 생성
 }
 
-// [변경] 버튼 클릭 시 파일 선택 트리거
+// {{ [변경] 버튼 클릭 시 파일 선택 트리거 }} 
 changeProfile.addEventListener('click', () => {
   profileInput.click();
 });
 
-// 파일 선택 시 이벤트
 profileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
-      // 선택한 이미지를 프로필 사진에 적용
+      // {{ 선택한 이미지를 프로필 사진에 적용 }}
       profileImg.src = e.target.result;
 
-      // 네비게이션 바의 프로필 아이콘도 업데이트
+      // {{ 네비게이션 바의 프로필 아이콘에도 사진 업데이트 }}
       const userProfileIcon = document.getElementById('userProfileIcon');
       userProfileIcon.src = e.target.result;
 
-      // 로컬스토리지에 유저별로 이미지 저장
+      // {{ 로컬스토리지에 유저별로 이미지 저장 }}
       if (userKey) {
         localStorage.setItem(userKey, e.target.result);
       }
     };
     reader.readAsDataURL(file); // 이미지를 Base64로 변환
+    // {{로컬스토리지에 이미지를 저장하기 위해 문자열로 변환하는거임}}
   }
 });
 
-// 페이지 로드 시 로컬스토리지에서 저장된 이미지 불러오기
+// {{페이지 로드 시 로컬스토리지에서 저장된 이미지들 불러오기}}
 window.addEventListener('DOMContentLoaded', () => {
   if (userKey) {
     const savedProfilePicture = localStorage.getItem(userKey);
@@ -113,33 +117,32 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// 부모 요소
+// {{게시글 양식의 부모 요소}}
 const mainContainer = document.querySelector('.Main');
 
-// 업로드 버튼
+// {{게시물 업로드 버튼 ( 네비게이션 버튼 중 " + " 버튼 )}}
 const submitPostButton = document.getElementById('submitPost');
 
-// 좋아요 상태를 저장할 객체
+//  {{좋아요 정보를 저장할 객체}}
 const likeData = JSON.parse(localStorage.getItem('likes')) || {};
 
-// 게시물 삭제 함수
+// {{게시물 삭제 함수}}
 function deletePost(postId) {
-  // 로컬스토리지에서 게시물 삭제
+    // {{로컬스토리지에서 게시물 삭제}}
   const posts = JSON.parse(localStorage.getItem('posts')) || [];
   const updatedPosts = posts.filter(post => post.id !== postId);
   localStorage.setItem('posts', JSON.stringify(updatedPosts));
 
-  // DOM에서 게시물 삭제
   const postElement = document.querySelector(`[data-post-id="${postId}"]`).closest('.POST');
   postElement.remove();
 }
 
-// 게시물을 DOM에 추가하는 함수
+// main의 하위 요소에 내가 작성한 양식대로 게시물 작성
 function addPostToDOM(postData) {
   const newPost = document.createElement('div');
   newPost.className = 'POST';
 
-  // 생성할 게시물의 HTML
+  // 생성할 게시물의 HTML ((제가 만든 양식입니다. html 폴더 내 main-post(양식_ 파일 확인)))
   newPost.innerHTML = `
     <div class="PostProfile">
       <img class="PostProfileImg" src="${postData.profilePicture}" alt="Profile Image">
@@ -153,6 +156,7 @@ function addPostToDOM(postData) {
     </div>
     <img class="PostIMG" src="${postData.postImage}" alt="Post Image">
     <div class="SnsBtn">
+     
       <i class="fa-heart ${
         likeData[postData.id]?.includes(currentUser.username) ? 'fa-solid' : 'fa-regular'
       }" data-post-id="${postData.id}"></i> <!-- 좋아요 버튼 -->
@@ -169,12 +173,13 @@ function addPostToDOM(postData) {
     <div class="CommentLine"></div>
     <hr class="BtwPost">
   `;
-
-  // 좋아요 버튼에 클릭 이벤트 추가
+  // {{SNS버튼은 좋아요, 댓글, DM 아이콘이 있긴 하지만 제작 기간이 짧아 모든 기능이 구현되어있는건 아닙니다 }}
+  
+    // {[좋아요 버튼 함수}}
   const likeButton = newPost.querySelector('.fa-heart');
   likeButton.addEventListener('click', () => toggleLike(postData.id, likeButton));
 
-  // 삭제 버튼에 클릭 이벤트 추가
+    // {{게시물 삭제 버튼에 기능 추가}}
   const deleteButton = newPost.querySelector('.delete-btn');
   if (deleteButton) {
     deleteButton.addEventListener('click', () => {

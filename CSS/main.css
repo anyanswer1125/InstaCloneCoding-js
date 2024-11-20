@@ -303,8 +303,9 @@ body, html {
 .MenuTab p{
   font-size: 18px;
   font-weight: 500;
-  margin: 0;
-  margin-top: 8px;
+  /* margin: 0; */
+  margin-top: 8.5px;
+  
 }
 
 .ProfileImgContainer {
