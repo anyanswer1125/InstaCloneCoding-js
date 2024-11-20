@@ -54,7 +54,7 @@ if (currentUser) {
 } else {
   // {로그인 정보가 없으면 로그인 페이지로 이동}
   alert('로그인 정보가 없습니다. 다시 로그인해주세요.');
-  window.location.href = '../HTML/login.html';
+  window.location.href = '../login.html';
 }
 
 // {{로그아웃 버튼}}
@@ -63,7 +63,7 @@ LogoutButton.addEventListener('click', function () {
   // {{로컬스토리지에 있는 현재 사용자 정보 삭제}}
   localStorage.removeItem('currentUser');
   alert('로그아웃 되었습니다.');
-  window.location.href = '../HTML/login.html';
+  window.location.href = '../login.html';
 });
 
 // {{사진 변경하는 부분}}
