@@ -160,7 +160,7 @@ function addPostToDOM(postData) {
       <i class="fa-heart ${
         likeData[postData.id]?.includes(currentUser.username) ? 'fa-solid' : 'fa-regular'
       }" data-post-id="${postData.id}"></i> <!-- 좋아요 버튼 -->
-      <i class="fa-regular fa-comment"></i>
+      <i class="fa-regular fa-comment" data-post-id="${postData.id}"></i> <!-- 댓글 버튼 -->
       <i class="fa-regular fa-paper-plane"></i>
     </div>
     <div class="HwoLikes">
@@ -281,15 +281,127 @@ submitPostButton.addEventListener('click', () => {
 });
 
 // 페이지 로드 시 게시글 및 좋아요 상태 복원
+// 페이지 로드 시 게시글 및 댓글 렌더링
 window.addEventListener('DOMContentLoaded', () => {
   const savedPosts = JSON.parse(localStorage.getItem('posts')) || [];
   const savedLikes = JSON.parse(localStorage.getItem('likes')) || {};
+  const savedComments = JSON.parse(localStorage.getItem('comments')) || {};
 
-  // 최신 게시물이 위로 오도록 역순 정렬
+  console.log('Saved Posts:', savedPosts);
+  console.log('Saved Comments:', savedComments);
+
   savedPosts.reverse();
 
   savedPosts.forEach((postData) => {
     postData.likes = savedLikes[postData.id] || [];
     addPostToDOM(postData);
+
+    if (savedComments[postData.id]) {
+      savedComments[postData.id].forEach((comment) => {
+        addCommentToPost(postData.id, comment.username, comment.text);
+      });
+    }
   });
+});
+
+
+
+// 댓글 버튼 및 모달 관련 요소
+const commentModal = document.createElement('div');
+commentModal.className = 'CommentModal';
+document.body.appendChild(commentModal);
+
+commentModal.innerHTML = `
+  <div class="CommentTab">
+    <textarea class="CommentInput" placeholder="댓글 작성하기.."></textarea>
+    <button class="SaveComment">저장</button>
+  </div>
+`;
+
+// 댓글 모달 창 초기 설정
+commentModal.style.display = 'none';
+
+const commentInput = document.querySelector('.CommentInput');
+const saveCommentButton = document.querySelector('.SaveComment');
+
+// 댓글 버튼 클릭 이벤트
+mainContainer.addEventListener('click', (event) => {
+  if (event.target.classList.contains('fa-comment')) {
+    const postId = event.target.getAttribute('data-post-id');
+    commentModal.style.display = 'block';
+    commentModal.setAttribute('data-post-id', postId);
+  }
+});
+
+// 저장 버튼 클릭 이벤트
+saveCommentButton.addEventListener('click', () => {
+  // 댓글 모달에서 postId 가져오기
+  const postId = commentModal.getAttribute('data-post-id');
+
+  // 댓글 입력값 가져오기
+  const commentText = commentInput.value.trim(); // commentText 변수를 정의
+
+  if (commentText) {
+    const comments = JSON.parse(localStorage.getItem('comments')) || {};
+    if (!comments[postId]) {
+      comments[postId] = [];
+    }
+
+    // 새 댓글 객체 생성
+    const newComment = {
+      username: currentUser.username,
+      text: commentText,
+    };
+
+    comments[postId].push(newComment); // 댓글 데이터 추가
+    localStorage.setItem('comments', JSON.stringify(comments)); // 로컬스토리지에 저장
+
+    // 댓글 DOM에 추가
+    addCommentToPost(postId, newComment.username, newComment.text);
+
+    // 모달 닫기 및 입력 필드 초기화
+    commentModal.style.display = 'none';
+    commentInput.value = '';
+  } else {
+    console.error('Comment text is empty');
+  }
+});
+
+
+
+// 페이지 로드 시 댓글 렌더링
+window.addEventListener('DOMContentLoaded', () => {
+  const savedComments = JSON.parse(localStorage.getItem('comments')) || {};
+
+  for (const postId in savedComments) {
+    savedComments[postId].forEach((comment) => {
+      addCommentToPost(postId, comment.username, comment.text); // 댓글 데이터 분리
+    });
+  }
+});
+
+
+// 댓글 DOM 추가 함수
+function addCommentToPost(postId, username, commentText) {
+  const postElement = document.querySelector(`[data-post-id="${postId}"]`).closest('.POST');
+  const commentLine = postElement.querySelector('.CommentLine');
+
+  if (!postElement || !commentLine) {
+    console.error('Post or CommentLine not found for Post ID:', postId);
+    return;
+  }
+
+  // 댓글 요소 생성
+  const commentElement = document.createElement('p');
+  commentElement.textContent = `${username}: ${commentText}`; // 작성자와 댓글 내용 표시
+  commentLine.appendChild(commentElement);
+}
+
+
+// 모달 닫기 기능
+window.addEventListener('click', (event) => {
+  if (event.target === commentModal) {
+    commentModal.style.display = 'none';
+    commentInput.value = '';
+  }
 });
