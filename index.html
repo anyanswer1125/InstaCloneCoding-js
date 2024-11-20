@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instagram</title>
+  <link rel="stylesheet" href="../CSS/main.css">
+  <link rel="icon" href="../Source/Blue_InstagramLogo.webp"/>
+<style>
+
+</style>
+</head>
+<script src="https://kit.fontawesome.com/b49e3afbd5.js" crossorigin="anonymous"></script>
+<body>
+  <div class="NavBox">
+    <div class="Nav">
+    
+    <div class="Icon Logo">
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    
+    <ul class="Icons">
+      <li class="Icon Home"><i class="fa-solid fa-house"></i></li>
+      
+      <li class="Icon Search"><i class="fa-solid fa-magnifying-glass"></i></li>
+      
+      <li class="Icon Message"><i class="fa-regular fa-paper-plane"></i></li>
+      
+      <li class="Icon Likes"><i class="fa-regular fa-heart"></i></li>
+      
+      <li class="Icon Post"><i class="fa-regular fa-square-plus"></i></li>
+      
+      <li class="Icon User">
+        <img id="userProfileIcon" src="../Source/POST/Default_pfp.jpg" alt="User Profile" style="width: 28px; height: 28px; border-radius: 50%;">
+      </li>
+      
+
+    </ul>
+
+      <div class="Icon Menu">
+        <i class="fa-solid fa-bars"></i>
+ 
+      </div>
+    </div>
+  </div>  
+    
+  <div class="Main">
+
+  </div>
+
+  <div class="PostModal">
+        <div class="PostTab">
+          
+          <h5>새 게시물 만들기
+            <!-- <p class="PostNext" id="submitPost" role="button">업로드</p> -->
+            <button class="uploadPicture" id="submitPost">업로드</button>
+          </h5>
+          
+          <hr>
+          
+          <div class="TitleArea">
+            
+          </div>
+
+          <div class="uploadArea">
+            <i class="fa-regular fa-image"></i>
+            <p>사진을 여기에 끌어다 놓으세요</p>
+            <input type="file" id="imageUpload" accept="image/*">
+            <textarea id="postContent" placeholder="내용을 입력하세요"></textarea>
+            
+          </div>
+          
+
+          
+          
+        </div>
+
+  </div>
+    
+  <div class="ProfileModal">
+    <div class="ProfileTab">
+      <p><span id="LoginName"></span> 님</p>
+
+      <div class="ProfileImgContainer">
+        <img class="ProfileImg" id="profilePicture" src="../Source/POST/Default_pfp.jpg" alt="프로필 사진">
+        <div class="ProfileImgOverlay" id="changeProfile">변경</div>
+      </div>
+      <input type="file" id="profileInput" accept="image/*" style="display: none;">
+    
+      
+      <p><span id="LoginUsername">username</span></p>
+    </div>
+    
+  </div>
+
+
+  <div class="MenuModal">
+    <div class="MenuTab">
+      <p id="LogoutButton">로그아웃</p>
+    </div>
+  </div>  
+
+
+  </body>
+  <script src="../JS/main.js"></script>
+
+  <script>
+    
+  </script>
+  
+  
+</html>
