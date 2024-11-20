@@ -396,3 +396,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+const InstaLogoButton = document.querySelector('.Icon.Logo');
+
+InstaLogoButton.addEventListener('click', () => {
+  window.location.href = 'https://www.instagram.com/'
+});
