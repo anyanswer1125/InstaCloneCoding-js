@@ -45,12 +45,12 @@ if (currentUser) {
   const LoginName = document.getElementById('LoginName');
   const LoginUsername = document.getElementById('LoginUsername');
   LoginName.textContent = `${currentUser.name}`;
-  LoginName.style.fontSize = '18px';
-  LoginName.style.fontWeight = '700';
+  // LoginName.style.fontSize = '18px';
+  // LoginName.style.fontWeight = '700';
 
   LoginUsername.textContent = `${currentUser.username}`;
-  LoginUsername.style.fontSize = '20px';
-  LoginUsername.style.fontWeight = '600';
+  // LoginUsername.style.fontSize = '20px';
+  // LoginUsername.style.fontWeight = '600';
 } else {
   // {로그인 정보가 없으면 로그인 페이지로 이동}
   alert('로그인 정보가 없습니다. 다시 로그인해주세요.');

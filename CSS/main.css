@@ -274,12 +274,12 @@ body, html {
 
 }
 
-.LoginName {
+#LoginName {
   font-weight: 700;
   font-size: 18px;
 }
 
-.LoginUsername {
+#LoginUsername {
   padding: 0;
   font-size: 20px;
   font-weight: 600;
@@ -504,6 +504,7 @@ body, html {
 } */
 
 
+
 @media screen and (max-width: 1400px) {
   .PostTab {
     width: 60vw;
@@ -512,21 +513,217 @@ body, html {
 }
 
 @media screen and (max-width: 600px) {
+  .Main {
+    /* background-color: red; */
+    /* margin-left: 75px; */
+    width: 84vw;
+    float: right;
+  }
+
+  .Icon {
+    /* padding-top: 10px; */
+    padding: 10px 2px;
+    
+  }
+
+  .Nav {
+    width: 40px;
+  }
+
+
+  .Nav i {
+    font-size: 22px;
+    padding: 0;
+  }
+
+  .POST {
+    width: 81vw;
+    margin-left: 3px;
+  }
+
+  .PostProfileImg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .PostProfile p {
+    margin-left: 7px;
+  }
+
+  .PostIMG {
+    width: 280px;
+    height: inherit;
+    margin-left: 5px;
+  }
+
+
+  .User {
+    padding: 10px 0;
+  }
+
+  .PostProfile P {
+    font-size: 11px;
+  }
+
+  .delete-btn {
+    width: 36px;
+    height: 20px;
+    font-size: 10px;
+    /* margin-left: 10px; */
+  }
   
+  .SnsBtn i {
+    font-size: 20px;
+    margin-left: 15px;
+  }
+
+  hr {
+    width: 280px;
+  }
+
   .PostTab {
-    margin-top: 200px;
-    height: 50vh;
+    /* background-color: red; */
+    width: 300px;
+    height: 500px;
+  }
+  
+  .PostTab hr{
+    width: 100%;
+  }
+
+  .PostTab h5 {
+    margin-left: 55px;
   }
 
   .uploadArea {
-    margin-top: 150px;
+    margin-top: 90px;
+  }
+
+  .ProfileModal {
+    width: 150px;
+    height: 150px;
+    margin-top: 370px;
+    margin-left: 150px;
+  }
+
+  .ProfileTab {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ProfileTab p {
+    margin: 7.8px;
+    font-size: 14px;
+  }
+
+  #LoginName {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 10px;
+  }
+
+  .ProfileImgContainer {
+    width: 80px;
+    height: 80px;
+  }
+
+  .ProfileImgOverlay {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ProfileImg {
+    width: 100%;
+    height: 100%;
   }
   
-  .Main {
+
+  #LoginUsername {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .MenuModal {
+    left: 75px;
+    margin-bottom: 5px;
+  }
+
+
+  .CommentTab {
+    /* margin-left: 195.5px; */
+    margin-left: 0;
+    left: 50%;
+  }
+
+
+
+} 
+
+
+
+/* 아이폰 12 Pro */
+@media (min-width: 390px) and (max-width: 411px) {
+  body {
+      /* color: blue; */
+  }
+
+  .POST {
+    width: 74vw;
     margin-left: 0px;
   }
 
+  .PostIMG {
+    margin-left: 4px;
+  }
+
+
+
+}
+
+/* 갤럭시 S20 울트라 */ 
+
+@media (min-width: 412px) and (max-width: 413px) {
+  .POST {
+    width: 74vw;
+    margin-left: 0px;
+  }
+
+  .PostIMG {
+    margin-left: 4px;
+  }
+}
+
+/* 아이폰 XR (너비가 더 넓음) */
+@media (min-width: 414px) and (max-width: 430px) {
+  body {
+    /* color: red; */
+  }
+
+  .POST {
+    width: 74vw;
+    margin-left: 7px;
+  }
+
   
+}
+
+
+/* 아이폰 14 Pro */
+@media (min-width: 430px) and (max-width: 932px) {
+  body {
+    /* color: green; */
+  }
+
+  .POST {
+    width: 74vw;
+    margin-left: 22px;
+  }
+
+  .PostIMG {
+    margin-left: 2px;
+  }
+
+
 }
 
 
