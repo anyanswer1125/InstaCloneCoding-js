@@ -728,3 +728,10 @@ body, html {
 
 
 
+#userProfileIcon {
+  border-radius: 100%;
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  image-rendering:auto
+}
